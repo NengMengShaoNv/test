@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<boday>
+  <!-- axios库地址：http://cdn.jsdelivr.net/npm/axios/dist/axios.min.js
+   省份数据地址：http://hmajax.itheima.net/api/province
+   目标：使用axios库，或取省份列表数据，展示到页面上
+   1.引入axios库
+   -->
+  <script src="http://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
+  </script>
+  <!-- 2.使用axios函数 -->
+  <script>
+    axios({
+      url: 'http://hmajax.itheima.net/api/province'
+    }).then(result => {
+      console.log(result)
+      //多打印  确认属性名
+      console.log(result.date.list)
+      console.log(result.date.list.join('<br>'))
+      //把准备好的省份列表 ，插入到页面
+      document.querySelector('.my-p').innerHTML = result.date.list.join('<br>')
+    })
+  </script>
+
+
+</boday>
+</body>
+
+</html>
